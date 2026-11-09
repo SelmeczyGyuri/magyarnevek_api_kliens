@@ -1,0 +1,346 @@
+/* ==========================================================
+   Magyar nevek – kliens stílus
+   Heading: Poppins · Body: Quicksand
+   ========================================================== */
+
+:root {
+    --forest: #17402a;
+    --leaf: #2f8a4c;
+    --leaf-dark: #236d3a;
+    --mint: #e7f1ea;
+    --mint-soft: #f3f8f4;
+    --paper: #f7f9f6;
+    --white: #ffffff;
+    --ink: #1b2a21;
+    --muted: #5d6e63;
+    --line: #d6e2d9;
+    --paprika: #ce2939;
+    --paprika-soft: #fdecee;
+    --radius: 10px;
+    --shadow: 0 1px 2px rgba(23, 64, 42, .06), 0 6px 18px rgba(23, 64, 42, .06);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 1.02rem;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--paper);
+}
+
+/* ---------- Header ---------- */
+
+header {
+    position: relative;
+    background: var(--forest);
+    padding-bottom: 6px;
+}
+
+/* Magyar trikolor csík: a oldal egyetlen "hangos" eleme */
+header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 6px;
+    background: linear-gradient(
+        to right,
+        var(--paprika) 0 33.33%,
+        var(--white) 33.33% 66.66%,
+        var(--leaf) 66.66% 100%
+    );
+}
+
+header img {
+    height: 42px;
+    margin: 0 0 0 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: .9rem 1.5rem;
+    max-width: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+}
+
+nav a {
+    display: inline-block;
+    padding: .45rem 1rem;
+    border-radius: 999px;
+    font-family: 'Poppins', sans-serif;
+    font-size: .95rem;
+    color: #dcebe0;
+    text-decoration: none;
+    transition: background .15s, color .15s;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, .12);
+    color: var(--white);
+}
+
+/* ---------- Main ---------- */
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--forest);
+}
+
+h1 { font-size: 1.9rem; margin: 0 0 1.4rem; }
+h2 { font-size: 1.35rem; margin: 2rem 0 .8rem; }
+
+a { color: var(--leaf-dark); text-underline-offset: 3px; }
+a:hover { color: var(--forest); }
+
+/* ---------- Alerts ---------- */
+
+.alert {
+    margin: 0 0 1.2rem;
+    padding: .8rem 1rem;
+    border-radius: var(--radius);
+    border-left: 5px solid;
+    font-weight: 600;
+}
+
+.alert-success {
+    background: var(--mint);
+    border-color: var(--leaf);
+    color: var(--forest);
+}
+
+.alert-warning {
+    background: var(--paprika-soft);
+    border-color: var(--paprika);
+    color: #8a1722;
+}
+
+/* ---------- Forms ---------- */
+
+input, select, button, textarea {
+    font: inherit;
+    font-size: .95rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="search"],
+select {
+    padding: .55rem .8rem;
+    color: var(--ink);
+    background: var(--white);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    transition: border-color .15s, box-shadow .15s;
+}
+
+input[type="text"]:hover,
+input[type="number"]:hover,
+select:hover { border-color: #b9cdbf; }
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid rgba(47, 138, 76, .45);
+    outline-offset: 2px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus { border-color: var(--leaf); }
+
+button, .button {
+    display: inline-block;
+    padding: .55rem 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: .9rem;
+    color: var(--white);
+    background: var(--leaf);
+    border: none;
+    border-radius: var(--radius);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .15s;
+}
+
+button:hover, .button:hover { background: var(--leaf-dark); color: var(--white); }
+button:disabled { opacity: .5; cursor: not-allowed; }
+
+.danger { background: var(--paprika); }
+.danger:hover { background: #a91f2c; }
+
+/* Szűrősáv */
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .6rem;
+    margin-bottom: 1.6rem;
+    padding: 1rem;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.search-form input[type="text"] { flex: 1 1 220px; }
+
+.search-form a {
+    padding: .5rem .6rem;
+    color: var(--paprika);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.search-form a:hover { text-decoration: underline; }
+
+/* ---------- Táblázat ---------- */
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.table th,
+.table td {
+    padding: .75rem 1rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.table th {
+    font-family: 'Poppins', sans-serif;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--forest);
+    background: var(--mint);
+    border-bottom: 2px solid var(--leaf);
+}
+
+.table td { border-bottom: 1px solid var(--line); }
+.table tbody tr:last-child td { border-bottom: none; }
+.table tbody tr:nth-child(even) { background: var(--mint-soft); }
+.table tbody tr:hover { background: var(--mint); }
+
+.table td:first-child { font-weight: 700; }
+.table td a { font-weight: 700; text-decoration: none; }
+.table td a:hover { text-decoration: underline; }
+
+/* Üres találat */
+.table td[colspan] {
+    padding: 2rem 1rem;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* ---------- Lapozó ---------- */
+
+#paginator {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.4rem;
+}
+
+#paginator a {
+    padding: .55rem 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: .9rem;
+    color: var(--white);
+    background: var(--leaf);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: background .15s;
+}
+
+#paginator a:hover { background: var(--leaf-dark); }
+
+/* ---------- Részletek oldal (names/show) ---------- */
+
+.card {
+    padding: 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.badge {
+    display: inline-block;
+    padding: .15rem .7rem;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 700;
+    background: var(--mint);
+    color: var(--forest);
+}
+
+.badge-male   { background: #e3edf8; color: #1f4a7a; }
+.badge-female { background: #fbe7ef; color: #8a2a52; }
+.badge-unisex { background: var(--mint); color: var(--forest); }
+
+.muted { color: var(--muted); }
+
+/* ---------- Footer ---------- */
+
+footer {
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+    font-size: .9rem;
+    color: #b9d0c0;
+    background: var(--forest);
+}
+
+footer p { margin: 0; }
+
+/* ---------- Mobil ---------- */
+
+@media (max-width: 720px) {
+    main { padding: 1.4rem 1rem 2.5rem; }
+    h1 { font-size: 1.5rem; }
+
+    .search-form select,
+    .search-form button { flex: 1 1 100%; }
+
+    .table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .table th,
+    .table td { white-space: nowrap; }
+
+    #paginator { justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
+}
